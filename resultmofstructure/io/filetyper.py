@@ -133,6 +133,7 @@ def ams_energetic(output):
     for line in parameters:
         if "Total Energy (hartree)" in line:
             total = float(line.split()[3])
+    for line in parameters:
         if "Energy (hartree)" in line:
             total = float(line.split()[2])
     return total
