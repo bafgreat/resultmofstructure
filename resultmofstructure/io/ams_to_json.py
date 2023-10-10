@@ -96,4 +96,4 @@ def dict_to_pickle(all_files):
     encorder = filetyper.AtomsEncoder
     filetyper.json_to_aseatom(all_data, encorder, 'Optmised_Unoptimised.json')
     return all_data
-#gfn_files = sorted(glob.glob('/home/mmm0555/Scratch/work/MOF_database/GFN_xTB/MOFData/*/'))
+gfn_files = sorted(glob.glob('/home/mmm0555/Scratch/work/MOF_database/GFN_xTB/MOFData/*/'))
