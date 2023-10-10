@@ -83,6 +83,7 @@ def dict_to_json(all_files):
             input_structure = read(full_exp_path)
          
             new_atoms, energy = extract(output)
+            print (base_name , energy)
             tmp['GFN_atom'] = new_atoms
             tmp['EXP_atom'] = input_structure
             tmp['Energy'] = energy
