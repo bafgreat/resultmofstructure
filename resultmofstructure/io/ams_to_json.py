@@ -80,6 +80,7 @@ def dict_to_json(all_files):
         full_exp_path = exp_path+'/Edited/Valid/'+base_name+'.cif' 
         if os.path.exists(full_exp_path):
             input_structure = read(full_exp_path)
+            print (base_name)
             new_atoms, energy = extract(output)
             print (base_name , energy, full_exp_path)
             tmp['GFN_atom'] = new_atoms
