@@ -4,12 +4,11 @@ __author__ = "Dr. Dinga Wonanke"
 __status__ = "production"
 import os
 import glob
+import numpy as np
 from ase.io import read
 from ase import Atoms
-import ams_to_ase
-import numpy as np
-import filetyper
-import coordlibrary
+from resultmofstructure.io import filetyper
+from resultmofstructure.io import coordlibrary
 
 
 
@@ -97,4 +96,4 @@ def dict_to_pickle(all_files):
     encorder = filetyper.AtomsEncoder
     filetyper.json_to_aseatom(all_data, encorder, 'Optmised_Unoptimised.json')
     return all_data
-gfn_files = sorted(glob.glob('/home/mmm0555/Scratch/work/MOF_database/GFN_xTB/MOFData/*/'))
+#gfn_files = sorted(glob.glob('/home/mmm0555/Scratch/work/MOF_database/GFN_xTB/MOFData/*/'))
