@@ -67,7 +67,7 @@ def extract(output):
     return New_atoms, energy
 
 
-def dict_to_pickle(all_files):
+def dict_to_json(all_files):
     all_data = {}
     failed = []
     missing = []
@@ -98,3 +98,4 @@ def dict_to_pickle(all_files):
     filetyper.json_to_aseatom(all_data, encorder, 'Optmised_Unoptimised.json')
     return all_data
 gfn_files = sorted(glob.glob('/home/mmm0555/Scratch/work/MOF_database/GFN_xTB/MOFData/*/'))
+dict_to_json(gfn_files)
