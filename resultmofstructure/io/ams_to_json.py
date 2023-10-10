@@ -78,12 +78,10 @@ def dict_to_json(all_files):
         output = files+base_name+'.out'
         exp_path = '/'.join(files.split('/')[:-4])
         full_exp_path = exp_path+'/Edited/Valid/'+base_name+'.cif' 
-        print (full_exp_path)
         if os.path.exists(full_exp_path):
             input_structure = read(full_exp_path)
-         
             new_atoms, energy = extract(output)
-            print (base_name , energy)
+            print (base_name , energy, full_exp_path)
             tmp['GFN_atom'] = new_atoms
             tmp['EXP_atom'] = input_structure
             tmp['Energy'] = energy
