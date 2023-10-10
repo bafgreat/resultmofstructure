@@ -78,16 +78,17 @@ def dict_to_pickle(all_files):
         output = files+base_name+'.out'
         exp_path = '/'.join(files.split('/')[:-4])
         full_exp_path = exp_path+'/Edited/Valid/'+base_name+'.cif' 
+        print (full_exp_path)
         if os.path.exists(full_exp_path):
             input_structure = read(full_exp_path)
-            try:
-                new_atoms, energy = extract(output)
-                tmp['GFN_atom'] = new_atoms
-                tmp['EXP_atom'] = input_structure
-                tmp['Energy'] = energy
-                all_data[base_name] = tmp
-            except:
-                failed.append(base_name+'\n')
+         
+            new_atoms, energy = extract(output)
+            tmp['GFN_atom'] = new_atoms
+            tmp['EXP_atom'] = input_structure
+            tmp['Energy'] = energy
+            all_data[base_name] = tmp
+   
+                #failed.append(base_name+'\n')
         else:
             missing.append(base_name+'\n')
 
