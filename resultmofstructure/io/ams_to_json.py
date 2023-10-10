@@ -3,12 +3,14 @@ from __future__ import print_function
 __author__ = "Dr. Dinga Wonanke"
 __status__ = "production"
 import os
+import glob
 from ase.io import read
 from ase import Atoms
 import ams_to_ase
 import numpy as np
 import filetyper
 import coordlibrary
+
 
 
 def collect_data(qc_input):
@@ -70,13 +72,15 @@ def dict_to_pickle(all_files):
     all_data = {}
     failed = []
     missing = []
+    base = os.getcwd()
     for files in all_files:
         tmp = {}
         base_name = files.split('/')[-2]
         output = files+base_name+'.out'
-        if os.path.exists(('../MOF_database/Edited/Valid/'+base_name+'.cif')):
-            input_structure = read(
-                '../MOF_database//Edited/Valid/'+base_name+'.cif')
+        exp_path = '/'.join(files.split('/')[:-4])
+        full_exp_path = exp_path+'/Edited/Valid/'+base_name+'.cif' 
+        if os.path.exists(full_exp_path):
+            input_structure = read(full_exp_path)
             try:
                 new_atoms, energy = extract(output)
                 tmp['GFN_atom'] = new_atoms
@@ -93,3 +97,4 @@ def dict_to_pickle(all_files):
     encorder = filetyper.AtomsEncoder
     filetyper.json_to_aseatom(all_data, encorder, 'Optmised_Unoptimised.json')
     return all_data
+gfn_files = sorted(glob.glob('/home/mmm0555/Scratch/work/MOF_database/GFN_xTB/MOFData/*/'))
