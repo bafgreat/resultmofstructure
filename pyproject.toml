@@ -8,6 +8,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.9"
 read-rkf = "^0.1.0"
+mofstructure = "^0.1.2"
 
 
 [build-system]
