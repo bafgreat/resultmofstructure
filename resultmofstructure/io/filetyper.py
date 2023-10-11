@@ -3,6 +3,7 @@ from __future__ import print_function
 __author__ = "Dr. Dinga Wonanke"
 __status__ = "production"
 import pickle
+import re
 import csv
 import json
 import codecs
@@ -130,12 +131,18 @@ def ams_energetic(output):
     '''
     parameters = get_contents(output)
     total = 0.0
-    for line in parameters:
-        # if "Total Energy (hartree)" in line:
-        #     total = float(line.split()[3])
-        if "Energy (hartree)" in line:
-            total = float(line.split()[2])
-    return total
+    last_line_num = -1
+    for i, line in enumerate(parameters):
+        if re.search(r'Energy \(hartree\)|Total Energy \(hartree\)', line):
+            last_line_num = i
+    energy_line = parameters[last_line_num].strip()
+    match_energy = re.search(r'-?\d+\.\d+', energy_line)
+    if match_energy:
+        energy = float(match_energy.group())
+    else:
+        energy = 0.0
+    
+    return energy
 
 
 def get_contents(filename):
