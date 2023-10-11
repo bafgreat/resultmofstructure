@@ -76,8 +76,10 @@ def dict_to_json(all_files):
         tmp = {}
         base_name = files.split('/')[-2]
         output = files+base_name+'.out'
-        exp_path = '/'.join(files.split('/')[:-4])
-        full_exp_path = exp_path+'/Edited/Valid/'+base_name+'.cif' 
+        # exp_path = '/'.join(files.split('/')[:-4])
+        # full_exp_path = exp_path+'/Edited/Valid/'+base_name+'.cif' 
+        exp_path = '/scratch/ws/0/diwo093e-MOFdata/MOF_structures/data/Valid/'
+        full_exp_path = exp_path +base_name+'/'+ base_name+'.cif' 
         if os.path.exists(full_exp_path):
             input_structure = read(full_exp_path)
             print (base_name)
@@ -97,6 +99,8 @@ def dict_to_json(all_files):
     encorder = filetyper.AtomsEncoder
     filetyper.json_to_aseatom(all_data, encorder, 'Optmised_Unoptimised.json')
     return all_data
-gfn_files = sorted(glob.glob('/home/mmm0555/Scratch/work/MOF_database/GFN_xTB/MOFData/*/'))
+# gfn_files = sorted(glob.glob('/home/mmm0555/Scratch/work/MOF_database/GFN_xTB/MOFData/*/'))
+gfn_files = sorted(glob.glob('/scratch/ws/0/diwo093e-MOFdata/MOFData/*/'))
+
 dict_to_json(gfn_files)
 

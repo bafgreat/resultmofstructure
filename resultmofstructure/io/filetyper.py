@@ -130,7 +130,6 @@ def ams_energetic(output):
     extract energy from ams
     '''
     parameters = get_contents(output)
-    total = 0.0
     last_line_num = -1
     for i, line in enumerate(parameters):
         if re.search(r'Energy \(hartree\)|Total Energy \(hartree\)', line):
