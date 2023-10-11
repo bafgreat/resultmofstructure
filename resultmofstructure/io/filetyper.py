@@ -131,9 +131,9 @@ def ams_energetic(output):
     parameters = get_contents(output)
     total = 0.0
     for line in parameters:
-        if "Total Energy (hartree)" in line:
-            total = float(line.split()[3])
-        elif "Energy (hartree)" in line:
+        # if "Total Energy (hartree)" in line:
+        #     total = float(line.split()[3])
+        if "Energy (hartree)" in line:
             total = float(line.split()[2])
     return total
 
