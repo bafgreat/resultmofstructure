@@ -76,11 +76,11 @@ def dict_to_json(all_files):
         tmp = {}
         base_name = files.split('/')[-2]
         output = files+base_name+'.out'
-        print (base_name)
         # exp_path = '/'.join(files.split('/')[:-4])
         # full_exp_path = exp_path+'/Edited/Valid/'+base_name+'.cif' 
         exp_path = '/scratch/ws/0/diwo093e-MOFdata/MOF_structures/data/Valid/'
         full_exp_path = exp_path +base_name+'/'+ base_name+'.cif' 
+        print (full_exp_path)
         if os.path.exists(full_exp_path):
             input_structure = read(full_exp_path)
             print (base_name)
