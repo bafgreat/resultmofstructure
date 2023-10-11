@@ -99,3 +99,4 @@ def dict_to_json(all_files):
     return all_data
 gfn_files = sorted(glob.glob('/home/mmm0555/Scratch/work/MOF_database/GFN_xTB/MOFData/*/'))
 dict_to_json(gfn_files)
+
